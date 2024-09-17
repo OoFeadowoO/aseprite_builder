@@ -38,13 +38,13 @@ jobs:
         echo "EOF" >> $GITHUB_OUTPUT
     - name: Load version from cachecache
       id: versioidcheck
-      uses: actions/cache@v3cache
+      uses: actions/cache@v3cacheachecache
       with:
         path: ${{ steps.version_info.outputs.latest_tag }}.txt
         key: cached_versiocached
     - name: Should we start new build?
       id: shouldiduild
-      if: github.event_name == cache'workflow_dispatch' || github.ref == 'refs/heads/fix' || steps.version_check.outputs.cache-hit != 'true'
+      if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/fix' || steps.version_check.outputs.cache-hit != 'true'
       run: echo "should_build=true" >> $GITHUB_OUTPUT
     - name: Create Release
       id: createidelease
